@@ -7,9 +7,9 @@ import Star from "./Star";
 import { Link, useNavigate } from "react-router-dom";
 const ProductCard = ({ itemData }) => {
   return (
-    <div className="mt-10 ">
+    <div className="mt-10">
       <Link to={`/productdetails/${itemData.id}`}>
-        <div className="w-full">
+        <div className="w-[200px] bg-red-300">
           <div className="bg-white_F5F5F5 pb-[55px] px-3 pt-4 rounded relative group cursor-pointer">
             <div className="flex items-center justify-between">
               {itemData.discountPercentage && (
@@ -22,7 +22,7 @@ const ProductCard = ({ itemData }) => {
               </span>
             </div>
             <div className="flex justify-between cursor-pointer">
-              <div className="w-[172] h-[152px] flex-1 ">
+              <div className="w-[172px] h-[152px] flex-1 ">
                 <img
                   src={itemData ? itemData.thumbnail : image}
                   alt={image}
@@ -63,6 +63,7 @@ const ProductCard = ({ itemData }) => {
           </div>
         </div>
       </Link>
+      <div className="w-[200px] bg-red-300 h-36"></div>
     </div>
   );
 };

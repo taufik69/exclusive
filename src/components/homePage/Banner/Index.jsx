@@ -13,6 +13,42 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
     appendDots: (dots) => (
       <div
         style={{
@@ -61,8 +97,8 @@ const Banner = () => {
   return (
     <div>
       <div className="container">
-        <div className="flex  justify-between">
-          <div className="w-[23%]  pt-10 border-r-[1.5px] border-r-text_black7D8184">
+        <div className="flex-row  justify-between lg:flex ">
+          <div className="w-full  lg:w-[23%]  pt-10 border-r-[1.5px] border-r-text_black7D8184">
             <ul>
               {category?.map((item) => (
                 <div className="flex items-center justify-between hover:bg-gray-200 transition-all">
@@ -78,15 +114,15 @@ const Banner = () => {
               ))}
             </ul>
           </div>
-          <div className="w-[77%] h-[344px] pl-[45px] mt-10">
-            <div className="slider-container">
+          <div className="w-full  lg:w-[77%]  h-[344px]  pl-0 lg:pl-[45px] mt-10">
+            <div className="slider-container ">
               <Slider {...settings}>
                 {[...new Array(10)].map((_, index) => (
                   <div key={index}>
                     <img
                       src={Bannerimg}
                       alt={Bannerimg}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-md lg:rounded-none"
                     />
                   </div>
                 ))}
